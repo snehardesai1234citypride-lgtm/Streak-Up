@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="STREAKUP — Small steps. Every day. Keep going."
+  >
+
+  <title>STREAKUP</title>
+
+  <!-- App icon -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="logo.svg"
+  >
+
+  <!-- Main stylesheet -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+<body>
+
+  <!-- =====================================================
+       BACKGROUND DECORATION
+       ===================================================== -->
+
+  <div class="background-decoration" aria-hidden="true">
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+    <div class="blob blob-three"></div>
+  </div>
+
+
+  <!-- =====================================================
+       MOBILE SIDEBAR OVERLAY
+       ===================================================== -->
+
+  <div
+    id="sidebarOverlay"
+    class="sidebar-overlay"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- =====================================================
+       SIDEBAR
+       ===================================================== -->
+
+  <aside id="sidebar" class="sidebar">
+
+    <!-- Brand -->
+    <div class="brand">
+
+      <img
+        src="logo.svg"
+        alt="STREAKUP logo"
+        class="brand-logo"
+      >
+
+      <div class="brand-text">
+        <h1>STREAKUP</h1>
+        <span>Small steps. Every day.</span>
+      </div>
+
+    </div>
+
+
+    <!-- Profile shortcut -->
+    <button
+      type="button"
+      class="sidebar-profile"
+      data-page-link="profile"
+    >
+
+      <div class="avatar-wrapper sidebar-avatar-wrapper">
+        <img
+          id="sidebarAvatar"
+          class="avatar"
+          alt="Profile picture"
+        >
+
+        <div class="avatar-placeholder">
+          👤
+        </div>
+      </div>
+
+      <div class="sidebar-profile-info">
+        <strong id="sidebarName">Streaker</strong>
+        <span id="sidebarLevel">Level 1</span>
+      </div>
+
+      <span class="sidebar-profile-arrow">›</span>
+
+    </button>
+
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav" aria-label="Main navigation">
+
+      <button
+        type="button"
+        class="nav-btn active"
+        data-page="home"
+      >
+        <span class="nav-icon">🏠</span>
+        <span>Home</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-btn"
+        data-page="streaks"
+      >
+        <span class="nav-icon">🔥</span>
+        <span>My Streaks</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-btn"
+        data-page="tasks"
+      >
+        <span class="nav-icon">✅</span>
+        <span>My Tasks</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-btn"
+        data-page="goals"
+      >
+        <span class="nav-icon">🎯</span>
+        <span>My Goals</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-btn"
+        data-page="achievements"
+      >
+        <span class="nav-icon">🏆</span>
+        <span>Achievements</span>
+      </button>
+
+      <div class="nav-divider"></div>
+
+      <button
+        type="button"
+        class="nav-btn"
+        data-page="profile"
+      >
+        <span class="nav-icon">👤</span>
+        <span>Profile</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-btn"
+        data-page="settings"
+      >
+        <span class="nav-icon">⚙️</span>
+        <span>Settings</span>
+      </button>
+
+    </nav>
+
+
+    <!-- Sidebar footer -->
+    <div class="sidebar-footer">
+
+      <div class="sidebar-tip">
+        <span class="tip-icon">✨</span>
+
+        <div>
+          <strong>Keep going!</strong>
+          <p>Consistency beats perfection.</p>
+        </div>
+      </div>
+
+      <small>STREAKUP • Build your momentum</small>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+       IMPORTANT:
+       Sidebar and main content are separate siblings.
+       This prevents overlap.
+       ===================================================== -->
+
+  <main class="main-content">
+
+    <!-- ===================================================
+         TOP HEADER
+         =================================================== -->
+
+    <header class="top-header">
+
+      <div class="header-left">
+
+        <button
+          type="button"
+          id="mobileMenuBtn"
+          class="mobile-menu-btn"
+          aria-label="Open navigation menu"
+        >
+          ☰
+        </button>
+
+        <div class="header-title">
+          <span id="headerDate">Today</span>
+          <h2 id="pageTitle">Dashboard</h2>
+        </div>
+
+      </div>
+
+
+      <div class="header-right">
+
+        <div class="header-xp">
+          <span class="header-xp-icon">⚡</span>
+
+          <div>
+            <strong id="headerXP">0 XP</strong>
+            <span id="headerLevel">Level 1</span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="header-avatar-button"
+          data-page-link="profile"
+          aria-label="Open profile"
+        >
+          <div class="avatar-wrapper">
+            <img
+              id="headerAvatar"
+              class="avatar"
+              alt="Profile picture"
+            >
+
+            <div class="avatar-placeholder">
+              👤
+            </div>
+          </div>
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- ===================================================
+         PAGE CONTAINER
+         =================================================== -->
+
+    <div class="page-container">
+
+
+      <!-- =================================================
+           HOME PAGE
+           ================================================= -->
+
+      <section
+        id="page-home"
+        class="page active"
+        data-page="home"
+      >
+
+        <!-- Greeting -->
+        <div class="page-intro">
+
+          <div>
+            <p class="eyebrow">
+              YOUR DAILY MOMENTUM
+            </p>
+
+            <h1>
+              <span id="greeting">Good evening</span>,
+              <span id="homeName">Streaker</span> 👋
+            </h1>
+
+            <p>
+              Keep showing up. Your small steps are adding up.
+            </p>
+          </div>
+
+          <div class="level-badge">
+            <span>⚡</span>
+            <strong id="homeLevel">Level 1</strong>
+          </div>
+
+        </div>
+
+
+        <!-- Birthday -->
+        <div
+          id="birthdayWish"
+          class="birthday-banner"
+          style="display: none;"
+        ></div>
+
+
+        <!-- Hero -->
+        <div class="hero-card">
+
+          <div class="hero-content">
+
+            <div class="hero-copy">
+
+              <span class="hero-label">
+                YOUR PROGRESS
+              </span>
+
+              <h2>
+                Keep the streak alive.
+              </h2>
+
+              <p>
+                Every completed task, goal and streak
+                moves you forward.
+              </p>
+
+              <div class="hero-xp">
+                <span>Current XP</span>
+                <strong id="heroXP">0 XP</strong>
+              </div>
+
+              <div class="xp-progress">
+
+                <div class="progress-bar">
+                  <div
+                    id="homeXPProgress"
+                    class="progress-fill"
+                    style="width: 0%;"
+                  ></div>
+                </div>
+
+                <span id="homeXP">0/100 XP</span>
+
+              </div>
+
+            </div>
+
+            <div class="hero-visual">
+              <div class="hero-orbit"></div>
+              <div class="hero-flame">🔥</div>
+              <span>KEEP<br>GOING</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Stats -->
+        <div class="stats-grid">
+
+          <article class="stat-card">
+            <div class="stat-icon purple">🔥</div>
+            <div>
+              <span>Current Streak</span>
+              <strong id="homeStreak">0</strong>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon orange">🏆</div>
+            <div>
+              <span>Best Streak</span>
+              <strong id="homeBestStreak">0</strong>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon green">✅</div>
+            <div>
+              <span>Tasks Done</span>
+              <strong id="homeTasks">0</strong>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon blue">🎯</div>
+            <div>
+              <span>Goals Done</span>
+              <strong id="homeGoals">0</strong>
+            </div>
+          </article>
+
+        </div>
+
+
+        <!-- Home two-column grid -->
+        <div class="dashboard-grid">
+
+
+          <!-- Featured streak -->
+          <article class="dashboard-card featured-streak-card">
+
+            <div class="card-header">
+
+              <div>
+                <span class="card-kicker">FEATURED STREAK</span>
+                <h3 id="homeStreakName">No streak yet</h3>
+              </div>
+
+              <span class="card-header-icon">🔥</span>
+
+            </div>
+
+            <div class="featured-streak-body">
+
+              <strong id="homeFeaturedStreak">
+                Create your first streak!
+              </strong>
+
+              <div class="progress-bar">
+                <div
+                  id="homeStreakProgress"
+                  class="progress-fill"
+                  style="width: 0%;"
+                ></div>
+              </div>
+
+              <p id="homeStreakMilestone">
+                Start today 🚀
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- Quote -->
+          <article class="dashboard-card quote-card">
+
+            <div class="card-header">
+
+              <div>
+                <span class="card-kicker">DAILY MOTIVATION</span>
+                <h3>Keep moving forward</h3>
+              </div>
+
+              <span class="card-header-icon">💜</span>
+
+            </div>
+
+            <div class="quote-content">
+
+              <span class="quote-mark">“</span>
+
+              <p id="quoteText">
+                "Small progress is still progress."
+              </p>
+
+              <span id="quoteAuthor">
+                — STREAKUP
+              </span>
+
+            </div>
+
+            <button
+              type="button"
+              id="newQuoteBtn"
+              class="secondary-button"
+            >
+              ✨ New Quote
+            </button>
+
+          </article>
+
+
+          <!-- Tasks preview -->
+          <article class="dashboard-card">
+
+            <div class="card-header">
+
+              <div>
+                <span class="card-kicker">UP NEXT</span>
+                <h3>Pending Tasks</h3>
+              </div>
+
+              <button
+                type="button"
+                class="text-button"
+                data-page-link="tasks"
+              >
+                View all →
+              </button>
+
+            </div>
+
+            <div id="homeTaskList" class="mini-list"></div>
+
+          </article>
+
+
+          <!-- Goals preview -->
+          <article class="dashboard-card">
+
+            <div class="card-header">
+
+              <div>
+                <span class="card-kicker">YOUR TARGETS</span>
+                <h3>Goal Progress</h3>
+              </div>
+
+              <button
+                type="button"
+                class="text-button"
+                data-page-link="goals"
+              >
+                View all →
+              </button>
+
+            </div>
+
+            <div id="homeGoalList" class="mini-list"></div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           STREAKS PAGE
+           ================================================= -->
+
+      <section
+        id="page-streaks"
+        class="page"
+        data-page="streaks"
+      >
+
+        <div class="page-heading">
+
+          <div>
+            <p class="eyebrow">BUILD CONSISTENCY</p>
+            <h1>My Streaks 🔥</h1>
+            <p>
+              Show up every day and watch your momentum grow.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="addStreakBtn"
+            class="primary-button"
+          >
+            + New Streak
+          </button>
+
+        </div>
+
+
+        <div class="overview-strip">
+
+          <div>
+            <span>Streaks</span>
+            <strong id="streakCount">0</strong>
+          </div>
+
+          <div>
+            <span>Best Overall</span>
+            <strong id="bestStreak">0</strong>
+          </div>
+
+          <div>
+            <span>Milestones</span>
+            <strong id="milestoneCount">0</strong>
+          </div>
+
+        </div>
+
+
+        <div id="streakList" class="streak-grid"></div>
+
+
+        <div
+          id="streakEmptyState"
+          class="empty-state"
+          style="display: none;"
+        >
+
+          <div class="empty-icon">🔥</div>
+
+          <h2>No streaks yet</h2>
+
+          <p>
+            Start with one small habit and build from there.
+          </p>
+
+          <button
+            type="button"
+            id="emptyAddStreakBtn"
+            class="primary-button"
+          >
+            Create My First Streak
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           TASKS PAGE
+           ================================================= -->
+
+      <section
+        id="page-tasks"
+        class="page"
+        data-page="tasks"
+      >
+
+        <div class="page-heading">
+
+          <div>
+            <p class="eyebrow">GET THINGS DONE</p>
+            <h1>My Tasks ✅</h1>
+            <p>
+              Turn your plans into completed actions.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="addTaskBtn"
+            class="primary-button"
+          >
+            + Add Task
+          </button>
+
+        </div>
+
+
+        <div class="task-progress-card">
+
+          <div class="task-progress-top">
+
+            <div>
+              <span>Today's Progress</span>
+              <strong id="taskProgressText">
+                0/0 completed
+              </strong>
+            </div>
+
+            <strong id="taskProgressPercent">
+              0%
+            </strong>
+
+          </div>
+
+          <div class="progress-bar large">
+            <div
+              id="taskProgress"
+              class="progress-fill"
+              style="width: 0%;"
+            ></div>
+          </div>
+
+        </div>
+
+
+        <div class="filter-tabs">
+
+          <button
+            type="button"
+            class="filter-btn active"
+            data-filter="all"
+          >
+            All
+          </button>
+
+          <button
+            type="button"
+            class="filter-btn"
+            data-filter="pending"
+          >
+            Pending
+          </button>
+
+          <button
+            type="button"
+            class="filter-btn"
+            data-filter="completed"
+          >
+            Completed
+          </button>
+
+        </div>
+
+
+        <div id="taskList" class="task-list"></div>
+
+
+        <div
+          id="taskEmptyState"
+          class="empty-state"
+          style="display: none;"
+        >
+
+          <div class="empty-icon">✅</div>
+
+          <h2>No tasks here</h2>
+
+          <p>
+            Add a task and make today count.
+          </p>
+
+          <button
+            type="button"
+            id="emptyAddTaskBtn"
+            class="primary-button"
+          >
+            Add My First Task
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           GOALS PAGE
+           ================================================= -->
+
+      <section
+        id="page-goals"
+        class="page"
+        data-page="goals"
+      >
+
+        <div class="page-heading">
+
+          <div>
+            <p class="eyebrow">THINK BIG. START SMALL.</p>
+            <h1>My Goals 🎯</h1>
+            <p>
+              Track meaningful progress one step at a time.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="addGoalBtn"
+            class="primary-button"
+          >
+            + New Goal
+          </button>
+
+        </div>
+
+
+        <div class="goal-overview-card">
+
+          <div class="goal-overview-circle">
+
+            <span id="overallGoalPercent">0%</span>
+
+          </div>
+
+          <div>
+
+            <span class="card-kicker">
+              OVERALL PROGRESS
+            </span>
+
+            <h2>
+              You're moving forward.
+            </h2>
+
+            <p>
+              <strong id="overallGoalNumber">0</strong>
+              active goals are being tracked.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div id="goalList" class="goal-grid"></div>
+
+
+        <div
+          id="goalEmptyState"
+          class="empty-state"
+          style="display: none;"
+        >
+
+          <div class="empty-icon">🎯</div>
+
+          <h2>No goals yet</h2>
+
+          <p>
+            Choose something meaningful and start making progress.
+          </p>
+
+          <button
+            type="button"
+            id="emptyAddGoalBtn"
+            class="primary-button"
+          >
+            Create My First Goal
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           ACHIEVEMENTS PAGE
+           ================================================= -->
+
+      <section
+        id="page-achievements"
+        class="page"
+        data-page="achievements"
+      >
+
+        <div class="page-heading">
+
+          <div>
+            <p class="eyebrow">REWARDS FOR CONSISTENCY</p>
+            <h1>Achievements 🏆</h1>
+            <p>
+              Every milestone tells a story.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div
+          id="achievementList"
+          class="achievement-grid"
+        ></div>
+
+      </section>
+
+
+      <!-- =================================================
+           PROFILE PAGE
+           ================================================= -->
+
+      <section
+        id="page-profile"
+        class="page"
+        data-page="profile"
+      >
+
+        <div class="page-heading">
+
+          <div>
+            <p class="eyebrow">MAKE IT YOURS</p>
+            <h1>My Profile 👤</h1>
+            <p>
+              Your progress. Your journey. Your streak.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="profile-grid">
+
+
+          <!-- Profile preview -->
+          <article class="profile-preview-card">
+
+            <div class="profile-preview-background"></div>
+
+            <div class="profile-large-avatar">
+
+              <img
+                id="profileAvatar"
+                class="avatar"
+                alt="Profile picture"
+              >
+
+              <div class="avatar-placeholder">
+                👤
+              </div>
+
+            </div>
+
+            <h2 id="profilePreviewName">
+              Streaker
+            </h2>
+
+            <span id="profilePreviewLevel">
+              Level 1
+            </span>
+
+            <div class="profile-xp">
+
+              <div class="profile-xp-top">
+                <span>Experience</span>
+                <strong id="profileXPText">0 XP</strong>
+              </div>
+
+              <div class="progress-bar">
+                <div
+                  id="profileXPProgress"
+                  class="progress-fill"
+                  style="width: 0%;"
+                ></div>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Profile form -->
+          <article class="settings-card">
+
+            <div class="card-header">
+
+              <div>
+                <span class="card-kicker">PERSONAL DETAILS</span>
+                <h3>Your Profile</h3>
+              </div>
+
+              <span class="card-header-icon">✨</span>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="nameInput">
+                Your name
+              </label>
+
+              <input
+                id="nameInput"
+                type="text"
+                placeholder="Enter your name"
+                maxlength="40"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="birthdayInput">
+                Birthday
+              </label>
+
+              <input
+                id="birthdayInput"
+                type="date"
+              >
+
+              <small>
+                We'll wish you automatically on your birthday 🎂
+              </small>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="photoInput">
+                Profile picture
+              </label>
+
+              <input
+                id="photoInput"
+                type="file"
+                accept="image/*"
+              >
+
+            </div>
+
+
+            <button
+              type="button"
+              id="saveProfileBtn"
+              class="primary-button full-width"
+            >
+              Save Profile
+            </button>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           SETTINGS PAGE
+           ================================================= -->
+
+      <section
+        id="page-settings"
+        class="page"
+        data-page="settings"
+      >
+
+        <div class="page-heading">
+
+          <div>
+            <p class="eyebrow">CUSTOMIZE YOUR EXPERIENCE</p>
+            <h1>Settings ⚙️</h1>
+            <p>
+              Make STREAKUP work the way you like.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="settings-list">
+
+
+          <article class="settings-card">
+
+            <div class="settings-row">
+
+              <div class="settings-row-icon">
+                🎨
+              </div>
+
+              <div class="settings-row-content">
+
+                <h3>Appearance</h3>
+
+                <p>
+                  Choose how STREAKUP looks.
+                </p>
+
+              </div>
+
+              <select id="themeSelect">
+
+                <option value="dark">
+                  Dark
+                </option>
+
+                <option value="light">
+                  Light
+                </option>
+
+              </select>
+
+            </div>
+
+          </article>
+
+
+          <article class="settings-card danger-card">
+
+            <div class="settings-row">
+
+              <div class="settings-row-icon">
+                🗑️
+              </div>
+
+              <div class="settings-row-content">
+
+                <h3>Reset STREAKUP</h3>
+
+                <p>
+                  Delete all streaks, tasks, goals,
+                  XP and profile data.
+                </p>
+
+              </div>
+
+              <button
+                type="button"
+                id="resetDataBtn"
+                class="danger-button"
+              >
+                Reset Data
+              </button>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       STREAK MODAL
+       ===================================================== -->
+
+  <div
+    id="streakModal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="streakModalTitle"
+  >
+
+    <div class="modal-card">
+
+      <div class="modal-header">
+
+        <div>
+          <span class="card-kicker">NEW HABIT</span>
+          <h2 id="streakModalTitle">Create a Streak 🔥</h2>
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close-modal
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="streakForm">
+
+        <div class="form-group">
+
+          <label for="streakName">
+            Streak name
+          </label>
+
+          <input
+            id="streakName"
+            type="text"
+            placeholder="e.g. Read 20 minutes"
+            maxlength="60"
+            required
+          >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            class="secondary-button"
+            data-close-modal
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="primary-button"
+          >
+            Create Streak
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       TASK MODAL
+       ===================================================== -->
+
+  <div
+    id="taskModal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="taskModalTitle"
+  >
+
+    <div class="modal-card">
+
+      <div class="modal-header">
+
+        <div>
+          <span class="card-kicker">NEW ACTION</span>
+          <h2 id="taskModalTitle">Add a Task ✅</h2>
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close-modal
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="taskForm">
+
+        <div class="form-group">
+
+          <label for="taskTitle">
+            Task
+          </label>
+
+          <input
+            id="taskTitle"
+            type="text"
+            placeholder="What needs to be done?"
+            maxlength="100"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="taskPriority">
+              Priority
+            </label>
+
+            <select id="taskPriority">
+
+              <option value="low">
+                Low
+              </option>
+
+              <option value="medium" selected>
+                Medium
+              </option>
+
+              <option value="high">
+                High
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="taskDueDate">
+              Due date
+            </label>
+
+            <input
+              id="taskDueDate"
+              type="date"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            class="secondary-button"
+            data-close-modal
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="primary-button"
+          >
+            Add Task
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       GOAL MODAL
+       ===================================================== -->
+
+  <div
+    id="goalModal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="goalModalTitle"
+  >
+
+    <div class="modal-card">
+
+      <div class="modal-header">
+
+        <div>
+          <span class="card-kicker">NEW TARGET</span>
+          <h2 id="goalModalTitle">Create a Goal 🎯</h2>
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close-modal
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="goalForm">
+
+        <div class="form-group">
+
+          <label for="goalTitle">
+            Goal
+          </label>
+
+          <input
+            id="goalTitle"
+            type="text"
+            placeholder="e.g. Read 10 books"
+            maxlength="80"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="goalTarget">
+              Target
+            </label>
+
+            <input
+              id="goalTarget"
+              type="number"
+              min="1"
+              step="1"
+              placeholder="10"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="goalUnit">
+              Unit
+            </label>
+
+            <input
+              id="goalUnit"
+              type="text"
+              placeholder="books"
+              maxlength="20"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="goalDeadline">
+            Deadline
+          </label>
+
+          <input
+            id="goalDeadline"
+            type="date"
+          >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            class="secondary-button"
+            data-close-modal
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="primary-button"
+          >
+            Create Goal
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       TOAST NOTIFICATIONS
+       ===================================================== -->
+
+  <div
+    id="toastContainer"
+    class="toast-container"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
